@@ -1,86 +1,88 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { Accordion } from "@/components/ui/Accordion";
 
-const faqItems = [
+const faqs = [
   {
-    question: "What is Cobalz and how does it work?",
-    answer:
-      "Cobalz is a Payment Facilitator (Payfac) platform that enables software platforms to offer payment processing to their merchants. We handle all the complexity of merchant onboarding, compliance, and payment infrastructure through Stripe Connect, so you can focus on building your platform.",
+    question: "What is Cobalz?",
+    answer: "Cobalz is a Payment Facilitator (Payfac) platform built on Stripe Connect. We enable software platforms to offer payment processing to their merchants without building complex payments infrastructure from scratch. You focus on your platform; we handle the payments.",
   },
   {
-    question: "How long does merchant onboarding take?",
-    answer:
-      "With Cobalz, merchants can complete onboarding in under 5 minutes using our Express flow. We collect essential information upfront and handle identity verification, KYC, and compliance checks automatically through Stripe's infrastructure.",
+    question: "How does merchant onboarding work?",
+    answer: "Merchants complete a streamlined 5-minute onboarding flow. We collect essential information and Stripe handles identity verification, KYC checks, and compliance automatically. Most merchants can start accepting payments the same day.",
   },
   {
-    question: "What are the fees and pricing?",
-    answer:
-      "Our pricing starts at 2.9% + 30¢ per transaction for the Starter plan, with lower rates as you scale. You keep between 70-90% of the payment revenue depending on your plan. There are no monthly fees, setup fees, or hidden charges.",
+    question: "What are the fees?",
+    answer: "We charge a percentage of each transaction (starting at 2.9% + 30¢ for Starter plans). You keep 70-90% of the processing revenue depending on your plan. There are no monthly fees, setup fees, or hidden charges.",
   },
   {
     question: "Is Cobalz PCI compliant?",
-    answer:
-      "Yes, Cobalz is PCI DSS Level 1 certified, the highest level of security certification in the payments industry. We handle all PCI compliance requirements so you and your merchants never have to worry about it.",
+    answer: "Yes. Because we build on Stripe Connect, both Cobalz and your platform inherit Stripe's PCI DSS Level 1 certification. You never handle sensitive card data, and neither do your merchants.",
   },
   {
     question: "What payment methods are supported?",
-    answer:
-      "We support all major credit and debit cards (Visa, Mastercard, Amex, Discover), ACH bank transfers, Apple Pay, Google Pay, and 135+ local payment methods across 40+ countries including iDEAL, Bancontact, and more.",
+    answer: "We support all major credit and debit cards (Visa, Mastercard, Amex, Discover), ACH bank transfers, Apple Pay, Google Pay, and 135+ local payment methods across 40+ countries.",
   },
   {
     question: "How do payouts work?",
-    answer:
-      "Merchants receive payouts automatically based on their chosen schedule (daily, weekly, or monthly). Funds are transferred directly to their linked bank account. As the platform, you receive your revenue share with each transaction in real-time.",
+    answer: "Merchants receive automatic payouts to their linked bank account based on their chosen schedule (daily, weekly, or monthly). As the platform, you receive your revenue share with each transaction in real-time.",
   },
   {
     question: "Can I customize the payment experience?",
-    answer:
-      "Absolutely! You can customize the onboarding flow with your branding, build custom checkout experiences using our APIs, and white-label the entire payment experience. Enterprise plans include full white-label capabilities.",
+    answer: "Absolutely. You can customize the onboarding flow with your branding, build custom checkout experiences using our APIs, and white-label the entire payment experience. Enterprise plans include full white-label capabilities.",
   },
   {
     question: "What countries are supported?",
-    answer:
-      "Cobalz supports merchant onboarding in 40+ countries including the US, Canada, UK, EU member states, Australia, and many more. We can process payments from customers in 135+ countries worldwide.",
-  },
-  {
-    question: "How do I get started?",
-    answer:
-      "Getting started is simple: sign up for an account, complete our platform verification, integrate our API or use our no-code options, and start onboarding merchants. Most platforms are live within 24-48 hours.",
-  },
-  {
-    question: "What support options are available?",
-    answer:
-      "We offer email support for all plans, priority support with faster response times for Growth plans, and dedicated account managers with 24/7 phone support for Enterprise customers. Our documentation and API reference are comprehensive and always available.",
+    answer: "We support merchant onboarding in 40+ countries including the US, Canada, UK, EU member states, Australia, and more. We can process payments from customers in 135+ countries worldwide.",
   },
 ];
 
 export function FAQ() {
   return (
-    <section className="py-24 bg-gray-50" id="faq">
+    <section className="py-24 bg-[#f8fafc]" id="faq">
       <Container size="md">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked{" "}
-            <span className="text-[#d4af37]">Questions</span>
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#0a2540] mb-4">
+            Frequently asked questions
           </h2>
-          <p className="text-lg text-gray-600">
-            Everything you need to know about Cobalz and how it can help your
-            platform.
-          </p>
         </div>
 
-        <Accordion items={faqItems} />
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600">
-            Still have questions?{" "}
-            <a href="#" className="text-[#d4af37] font-medium hover:underline">
-              Contact our team
-            </a>{" "}
-            for personalized assistance.
-          </p>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <details
+              key={index}
+              className="group bg-white rounded-lg border border-gray-200 [&_summary::-webkit-details-marker]:hidden"
+            >
+              <summary className="flex cursor-pointer items-center justify-between gap-4 p-6 text-[#0a2540] font-medium">
+                <span>{faq.question}</span>
+                <span className="relative size-5 shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="absolute inset-0 size-5 opacity-100 group-open:opacity-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="absolute inset-0 size-5 opacity-0 group-open:opacity-100"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="px-6 pb-6 text-[#475569] leading-relaxed">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
         </div>
       </Container>
     </section>

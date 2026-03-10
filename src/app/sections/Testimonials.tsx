@@ -1,105 +1,123 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
-import { Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const testimonials = [
+const caseStudies = [
   {
-    quote:
-      "Cobalz cut our merchant onboarding time from weeks to minutes. Our platform revenue increased 40% in the first quarter alone.",
+    company: "TechMarketplace",
+    headline: "TechMarketplace scales to $50M in GMV with Cobalz",
+    metric: "160",
+    metricLabel: "countries supported",
+    metric2: "11K+",
+    metric2Label: "active merchants",
+    quote: "Cobalz cut our merchant onboarding time from weeks to minutes. Our platform revenue increased 40% in the first quarter alone.",
     author: "Sarah Chen",
-    role: "CEO, TechMarketplace",
-    rating: 5,
+    role: "CEO",
+    products: ["Payments", "Connect", "Onboarding"],
   },
   {
-    quote:
-      "The revenue share model is fantastic. We're keeping significantly more than we did with our previous Payfac provider.",
+    company: "PayFlow",
+    headline: "PayFlow consolidates $5B in platform revenue onto Cobalz",
+    metric: "5+",
+    metricLabel: "consumer platforms",
+    metric2: "700+",
+    metric2Label: "payment integrations",
+    quote: "The revenue share model is fantastic. We're keeping significantly more than we did with our previous Payfac provider.",
     author: "Michael Rodriguez",
-    role: "CFO, PayFlow Solutions",
-    rating: 5,
+    role: "CFO",
+    products: ["Connect", "Revenue Share", "Analytics"],
   },
   {
-    quote:
-      "Best developer experience I've seen. The API is clean, documentation is excellent, and support is genuinely helpful.",
+    company: "CommerceHub",
+    headline: "CommerceHub powers global commerce with Cobalz",
+    metric: "600K+",
+    metricLabel: "merchants onboarded",
+    metric2: "1.8K",
+    metric2Label: "enterprise clients",
+    quote: "Best developer experience I've seen. The API is clean, documentation is excellent, and support is genuinely helpful.",
     author: "Emily Watson",
-    role: "CTO, CommerceHub",
-    rating: 5,
+    role: "CTO",
+    products: ["API", "Webhooks", "Dashboard"],
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-white">
       <Container>
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Trusted by{" "}
-            <span className="text-[#d4af37]">Industry Leaders</span>
+        <div className="mb-16">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#0a2540] mb-4">
+            Powering businesses of all sizes
           </h2>
-          <p className="text-lg text-gray-600">
-            See what platform operators and merchants are saying about Cobalz.
+          <p className="text-lg text-[#475569]">
+            Run your platform on reliable infrastructure that adapts to your needs.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="h-full">
-              <CardContent className="pt-6 h-full flex flex-col">
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-[#d4af37] text-[#d4af37]"
-                    />
-                  ))}
+        <div className="space-y-12">
+          {caseStudies.map((study, index) => (
+            <div
+              key={index}
+              className="bg-[#f8fafc] rounded-xl p-8 lg:p-12 grid lg:grid-cols-2 gap-8 items-center"
+            >
+              <div>
+                <h3 className="text-xl font-semibold text-[#0a2540] mb-4">
+                  {study.headline}
+                </h3>
+                
+                <div className="flex gap-8 mb-6">
+                  <div>
+                    <div className="text-3xl font-semibold text-[#0a2540]">{study.metric}</div>
+                    <div className="text-sm text-[#64748b]">{study.metricLabel}</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-semibold text-[#0a2540]">{study.metric2}</div>
+                    <div className="text-sm text-[#64748b]">{study.metric2Label}</div>
+                  </div>
                 </div>
 
-                {/* Quote */}
-                <blockquote className="text-gray-700 leading-relaxed mb-6 flex-1">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
+                <div className="mb-6">
+                  <span className="text-sm text-[#64748b]">Products used:</span>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {study.products.map((product, pIndex) => (
+                      <span
+                        key={pIndex}
+                        className="text-sm font-medium text-[#0a2540] bg-white px-3 py-1 rounded-full border border-gray-200"
+                      >
+                        {product}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-                {/* Author */}
+                <a
+                  href="#"
+                  className="inline-flex items-center text-[#d4af37] font-medium hover:gap-2 transition-all"
+                >
+                  Read the story
+                  <ArrowRight className="ml-1 w-4 h-4" />
+                </a>
+              </div>
+
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                <blockquote className="text-[#475569] leading-relaxed mb-6">
+                  &ldquo;{study.quote}&rdquo;
+                </blockquote>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#f4e4a6] flex items-center justify-center">
-                    <span className="text-[#8a6d0b] font-semibold">
-                      {testimonial.author
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
+                  <div className="w-10 h-10 rounded-full bg-[#d4af37]/10 flex items-center justify-center">
+                    <span className="text-[#d4af37] font-semibold">
+                      {study.author.split(" ").map(n => n[0]).join("")}
                     </span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">
-                      {testimonial.author}
-                    </div>
-                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                    <div className="font-medium text-[#0a2540]">{study.author}</div>
+                    <div className="text-sm text-[#64748b]">{study.role}, {study.company}</div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
-        </div>
-
-        {/* Logos */}
-        <div className="mt-16 pt-12 border-t border-gray-200">
-          <p className="text-center text-sm text-gray-500 mb-8">
-            Powering payments for leading platforms
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-            {["TechMarketplace", "PayFlow", "CommerceHub", "FinServe", "BizPay"].map(
-              (company) => (
-                <div
-                  key={company}
-                  className="text-lg font-semibold text-gray-400"
-                >
-                  {company}
-                </div>
-              )
-            )}
-          </div>
         </div>
       </Container>
     </section>
