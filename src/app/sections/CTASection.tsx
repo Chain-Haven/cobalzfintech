@@ -32,22 +32,22 @@ export function CTASection() {
 
           <div className="grid sm:grid-cols-2 gap-6 border-t border-gray-800 pt-8">
             <div>
-              <h3 className="font-medium text-white mb-2">See what you'll pay</h3>
+              <h3 className="font-medium text-white mb-2">See what you&apos;ll pay</h3>
               <p className="text-sm text-gray-400 mb-3">
                 Integrated per-transaction pricing with no hidden fees.
               </p>
-              <a href="#pricing" className="text-[#d4af37] text-sm hover:underline">
+              <Link href="/dashboard" className="text-[#d4af37] text-sm hover:underline">
                 Pricing details →
-              </a>
+              </Link>
             </div>
             <div>
               <h3 className="font-medium text-white mb-2">Start building</h3>
               <p className="text-sm text-gray-400 mb-3">
                 Get up and running with Cobalz in as little as 10 minutes.
               </p>
-              <a href="#" className="text-[#d4af37] text-sm hover:underline">
-                Integration options →
-              </a>
+              <Link href="/dashboard/analytics" className="text-[#d4af37] text-sm hover:underline">
+                View analytics →
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const features = [
@@ -62,13 +63,13 @@ export function Features() {
               <p className="text-[#475569] mb-4 leading-relaxed">
                 {feature.description}
               </p>
-              <a
-                href="#"
+                <Link
+                href="/onboarding"
                 className="inline-flex items-center text-[#d4af37] font-medium group-hover:gap-2 transition-all"
               >
                 {feature.link}
                 <ArrowRight className="ml-1 w-4 h-4" />
-              </a>
+              </Link>
             </div>
           ))}
         </div>

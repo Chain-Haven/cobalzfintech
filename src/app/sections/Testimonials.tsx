@@ -1,6 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const caseStudies = [
@@ -91,13 +92,13 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  href="/onboarding"
                   className="inline-flex items-center text-[#d4af37] font-medium hover:gap-2 transition-all"
                 >
                   Read the story
                   <ArrowRight className="ml-1 w-4 h-4" />
-                </a>
+                </Link>
               </div>
 
               <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
